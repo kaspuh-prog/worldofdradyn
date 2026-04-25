@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>World of Dradyn</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <main>
@@ -28,7 +31,7 @@
     </section>
 
     <!-- WHAT IS DRADYN -->
-    <section class="section-dark">
+    <section class="section-dark fade-in">
       <div class="container">
         <h2>What is Dradyn</h2>
 
@@ -43,12 +46,12 @@
     </section>
 
     <!-- TWO WAYS -->
-    <section class="section-main">
+    <section class="section-main fade-in">
       <div class="container">
         <h2>Two Ways to Experience Dradyn</h2>
 
         <div class="experience-grid">
-          <article class="experience-card" id="game">
+          <article class="experience-card fade-in" id="game">
             <p class="eyebrow">The Game</p>
             <h3>Dradyn: Untold</h3>
             <p>
@@ -56,7 +59,7 @@
             </p>
           </article>
 
-          <article class="experience-card" id="story">
+          <article class="experience-card fade-in" id="story">
             <p class="eyebrow">The Story</p>
             <h3>Tales from Dradyn</h3>
             <p>
@@ -68,7 +71,7 @@
     </section>
 
     <!-- WORLD MAP -->
-    <section class="section-dark" id="world">
+    <section class="section-dark fade-in" id="world">
       <div class="container wide-container">
         <h2>The World</h2>
 
@@ -76,7 +79,7 @@
           The River Ahmn, also called the Ahmn Belt, stretches east and west across Dradyn, dividing the northern kingdoms from the southern wilds. Above it stand floating Langtree, riverbound Telmbrook, holy Aspil, mountainlocked Thrombeldo, and the hidden forests of Silvaar.
         </p>
 
-        <div class="map-frame">
+        <div class="map-frame fade-in">
           <img src="images/WorldMap2.png" alt="World map of Dradyn" />
         </div>
 
@@ -86,36 +89,52 @@
       </div>
     </section>
 
-<!-- LATEST UPDATES -->
-<section class="section-main" id="devlog">
-  <div class="container">
-    <h2>Latest Updates</h2>
+    <!-- LATEST UPDATES -->
+    <section class="section-main fade-in" id="devlog">
+      <div class="container">
+        <h2>Latest Updates</h2>
 
-    <div class="updates-list">
+        <div class="updates-list">
 
-      <article class="update-item">
-        <p class="update-type">Devlog</p>
-        <h3>Combat System Progress</h3>
-        <p class="update-desc">
-          Continued refinement on movement, sprinting, and combat responsiveness.
-        </p>
-        <p class="update-date">April 2026</p>
-      </article>
+          <article class="update-item fade-in">
+            <p class="update-type">Devlog</p>
+            <h3>Combat System Progress</h3>
+            <p class="update-desc">
+              Continued refinement on movement, sprinting, and combat responsiveness.
+            </p>
+            <p class="update-date">April 2026</p>
+          </article>
 
-      <article class="update-item">
-        <p class="update-type">Story</p>
-        <h3>Chapter 1: (Title TBD)</h3>
-        <p class="update-desc">
-          The first tale from Dradyn begins, introducing the world and its tensions.
-        </p>
-        <p class="update-date">Coming Soon</p>
-      </article>
+          <article class="update-item fade-in">
+            <p class="update-type">Story</p>
+            <h3>Chapter 1: (Title TBD)</h3>
+            <p class="update-desc">
+              The first tale from Dradyn begins, introducing the world and its tensions.
+            </p>
+            <p class="update-date">Coming Soon</p>
+          </article>
 
-    </div>
-  </div>
-</section>
+        </div>
+      </div>
+    </section>
 
   </main>
+
+  <script>
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll(".fade-in").forEach((element) => {
+      fadeObserver.observe(element);
+    });
+  </script>
 
 </body>
 </html>
