@@ -12,7 +12,20 @@
 
 <body>
 
-  <main>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#top" class="site-logo">World of Dradyn</a>
+
+      <div class="site-links">
+        <a href="#game">Game</a>
+        <a href="#story">Story</a>
+        <a href="#world">World</a>
+        <a href="#devlog">Updates</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
 
     <!-- HERO -->
     <section class="hero">
@@ -31,7 +44,7 @@
     </section>
 
     <!-- WHAT IS DRADYN -->
-    <section class="section-dark fade-in">
+    <section class="section-dark fade-in" id="about">
       <div class="container">
         <h2>What is Dradyn</h2>
 
@@ -120,21 +133,64 @@
 
   </main>
 
-  <script>
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, {
-      threshold: 0.15
+ <script>
+  /* =========================
+     FADE-IN (existing)
+  ========================= */
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
+  }, {
+    threshold: 0.15
+  });
 
-    document.querySelectorAll(".fade-in").forEach((element) => {
-      fadeObserver.observe(element);
+  document.querySelectorAll(".fade-in").forEach((el) => {
+    fadeObserver.observe(el);
+  });
+
+  /* =========================
+     ACTIVE NAV HIGHLIGHT
+  ========================= */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".site-links a");
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + id) {
+            link.classList.add("active");
+          }
+        });
+      }
     });
-  </script>
+  }, {
+    threshold: 0.4
+  });
+
+  sections.forEach((section) => {
+    navObserver.observe(section);
+  });
+
+  /* =========================
+     NAV BACKGROUND ON SCROLL
+  ========================= */
+  const header = document.querySelector(".site-header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
 
 </body>
 </html>

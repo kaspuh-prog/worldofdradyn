@@ -312,3 +312,99 @@ h3 {
     width: min(280px, 90vw);
   }
 }
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   SITE NAVIGATION
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+
+  background: rgba(18, 20, 16, 0.72);
+  border-bottom: 1px solid rgba(58, 62, 52, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.site-nav {
+  width: min(1200px, 94vw);
+  margin: 0 auto;
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-logo {
+  color: var(--text-primary);
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.site-links {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
+.site-links a {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.site-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .site-nav {
+    min-height: auto;
+    padding: 0.85rem 0;
+    flex-direction: column;
+  }
+
+  .site-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem 1rem;
+  }
+}
+
+/* Active nav link */
+.site-links a.active {
+  color: var(--accent);
+}
+
+/* Stronger nav when scrolling */
+.site-header.scrolled {
+  background: rgba(18, 20, 16, 0.9);
+  border-bottom: 1px solid var(--divider);
+}
