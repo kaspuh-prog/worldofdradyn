@@ -10,6 +10,9 @@
   --text-secondary: #A7AA9C;
 
   --divider: #3A3E34;
+
+  --shadow-soft: rgba(0,0,0,0.35);
+  --transition-fast: 180ms ease;
 }
 
 * {
@@ -27,7 +30,26 @@ body {
   padding: 0;
   background: var(--bg-main);
   color: var(--text-primary);
-  font-family: Georgia, "Times New Roman", serif;
+
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* =========================
+   HEADINGS (UPGRADED)
+========================= */
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
 }
 
 /* HERO */
@@ -67,22 +89,19 @@ body {
   margin: 0;
   font-size: clamp(3rem, 8vw, 7rem);
   line-height: 0.95;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
   text-shadow: 0 6px 24px rgba(0, 0, 0, 0.85);
-  color: var(--text-primary);
 }
 
 .hero-content p {
   margin: 1.25rem auto 0;
   max-width: 680px;
-  font-size: clamp(1.1rem, 2vw, 1.65rem);
-  line-height: 1.5;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
   color: var(--text-secondary);
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
 }
 
-/* BUTTONS */
+/* BUTTONS (REFINED, NOT CHANGED STYLE) */
 
 .hero-buttons {
   margin-top: 2rem;
@@ -101,14 +120,14 @@ body {
   color: var(--text-primary);
   text-decoration: none;
 
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 
   background: rgba(35, 38, 31, 0.7);
   backdrop-filter: blur(4px);
 
-  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition: all var(--transition-fast);
 }
 
 .button:hover {
@@ -127,28 +146,13 @@ body {
   background: var(--accent-dark);
 }
 
-/* MOBILE */
-
-@media (max-width: 700px) {
-  .hero-content {
-    padding: 1.25rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .button {
-    width: min(280px, 90vw);
-  }
-}
-
-/* GENERAL SECTIONS */
+/* SECTIONS */
 
 .section-dark {
   background: var(--bg-secondary);
   padding: 5rem 1.5rem;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
 }
 
 .container {
@@ -157,39 +161,33 @@ body {
   text-align: center;
 }
 
-.section-dark h2 {
-  margin: 0 0 1.5rem;
+.section-dark h2,
+.section-main h2 {
+  margin: 0 0 1.75rem;
   font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.section-dark p {
+.section-dark p,
+.section-main p {
   margin: 1rem auto;
   max-width: 700px;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--text-secondary);
 }
 
-/* TWO WAYS SECTION */
+/* EXPERIENCE GRID */
 
 .section-main {
   background: var(--bg-main);
   padding: 5rem 1.5rem;
 }
 
-.section-main h2 {
-  margin: 0 0 2rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
@@ -198,12 +196,19 @@ body {
   border: 1px solid var(--divider);
   padding: 2rem;
   text-align: left;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--shadow-soft);
 }
 
 .experience-card .eyebrow {
   margin: 0 0 0.75rem;
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -211,23 +216,15 @@ body {
 .experience-card h3 {
   margin: 0 0 1rem;
   font-size: clamp(1.6rem, 3vw, 2.25rem);
-  color: var(--text-primary);
 }
 
 .experience-card p {
   margin: 0;
   color: var(--text-secondary);
   font-size: 1.02rem;
-  line-height: 1.7;
 }
 
-@media (max-width: 800px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* WORLD MAP SECTION */
+/* MAP */
 
 .wide-container {
   width: min(1400px, 96vw);
@@ -235,18 +232,17 @@ body {
 
 .map-frame {
   margin: 2.5rem auto;
-  padding: 0;
-  background: transparent;
-  border: none;
 }
 
 .map-frame img {
   display: block;
   width: 100%;
   height: auto;
+  border: 1px solid var(--divider);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* UPDATES SECTION */
+/* UPDATES */
 
 .updates-list {
   margin-top: 2rem;
@@ -260,6 +256,12 @@ body {
   background: var(--panel);
   border: 1px solid var(--divider);
   text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.update-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
 
 .update-type {
@@ -286,4 +288,27 @@ body {
   font-size: 0.85rem;
   color: var(--text-secondary);
   opacity: 0.8;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-content {
+    padding: 1.25rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: min(280px, 90vw);
+  }
 }
