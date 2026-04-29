@@ -3,29 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>World of Dradyn</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
   <header class="site-header">
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="#top" class="site-logo">World of Dradyn</a>
-
-      <div class="site-links">
-        <a href="#game">Game</a>
-        <a href="#story">Story</a>
-        <a href="#world">World</a>
-        <a href="#devlog">Updates</a>
-      </div>
+    <a class="site-logo" href="index.html">World of Dradyn</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="game.html">Game</a>
+      <a href="story.html">Stories</a>
+      <a href="factions.html">Factions</a>
+      <a href="devlog.html">Devlog</a>
     </nav>
   </header>
 
-  <main id="top">
+  <main>
 
     <!-- HERO -->
     <section class="hero">
@@ -37,14 +30,14 @@
 
         <div class="hero-buttons">
           <a href="#world" class="button primary">Explore the World</a>
-          <a href="#story" class="button">Read the Story</a>
-          <a href="#devlog" class="button">Follow Development</a>
+          <a href="story.html" class="button">Read the Stories</a>
+          <a href="game.html" class="button">Enter the Game</a>
         </div>
       </div>
     </section>
 
     <!-- WHAT IS DRADYN -->
-    <section class="section-dark fade-in" id="about">
+    <section class="section-dark">
       <div class="container">
         <h2>What is Dradyn</h2>
 
@@ -59,32 +52,34 @@
     </section>
 
     <!-- TWO WAYS -->
-    <section class="section-main fade-in">
+    <section class="section-main">
       <div class="container">
         <h2>Two Ways to Experience Dradyn</h2>
 
         <div class="experience-grid">
-          <article class="experience-card fade-in" id="game">
+          <article class="experience-card" id="game">
             <p class="eyebrow">The Game</p>
             <h3>Dradyn: Untold</h3>
             <p>
               A party based fantasy action RPG focused on exploration, combat, and discovery. Travel across the world, build your party, and uncover the forces shaping Dradyn from behind the scenes.
             </p>
+            <a href="game.html" class="text-link">Explore the game side</a>
           </article>
 
-          <article class="experience-card fade-in" id="story">
-            <p class="eyebrow">The Story</p>
+          <article class="experience-card" id="story">
+            <p class="eyebrow">The Stories</p>
             <h3>Tales from Dradyn</h3>
             <p>
               A series of novellas released chapter by chapter. Follow characters living within the world as their paths cross events that shape the future of Dradyn.
             </p>
+            <a href="story.html" class="text-link">Explore the story side</a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- WORLD MAP -->
-    <section class="section-dark fade-in" id="world">
+    <section class="section-dark" id="world">
       <div class="container wide-container">
         <h2>The World</h2>
 
@@ -92,8 +87,8 @@
           The River Ahmn, also called the Ahmn Belt, stretches east and west across Dradyn, dividing the northern kingdoms from the southern wilds. Above it stand floating Langtree, riverbound Telmbrook, holy Aspil, mountainlocked Thrombeldo, and the hidden forests of Silvaar.
         </p>
 
-        <div class="map-frame fade-in">
-          <img src="images/WorldMap2.png" alt="World map of Dradyn" />
+        <div class="map-frame">
+          <img src="assets/images/WorldMap2.png" alt="World map of Dradyn" />
         </div>
 
         <p>
@@ -103,13 +98,13 @@
     </section>
 
     <!-- LATEST UPDATES -->
-    <section class="section-main fade-in" id="devlog">
+    <section class="section-main" id="devlog">
       <div class="container">
         <h2>Latest Updates</h2>
 
         <div class="updates-list">
 
-          <article class="update-item fade-in">
+          <article class="update-item">
             <p class="update-type">Devlog</p>
             <h3>Combat System Progress</h3>
             <p class="update-desc">
@@ -118,9 +113,9 @@
             <p class="update-date">April 2026</p>
           </article>
 
-          <article class="update-item fade-in">
+          <article class="update-item">
             <p class="update-type">Story</p>
-            <h3>Chapter 1: (Title TBD)</h3>
+            <h3>Chapter 1: Title TBD</h3>
             <p class="update-desc">
               The first tale from Dradyn begins, introducing the world and its tensions.
             </p>
@@ -128,69 +123,14 @@
           </article>
 
         </div>
+
+        <div class="section-actions">
+          <a href="devlog.html" class="button">View Devlog</a>
+        </div>
       </div>
     </section>
 
   </main>
-
- <script>
-  /* =========================
-     FADE-IN (existing)
-  ========================= */
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  document.querySelectorAll(".fade-in").forEach((el) => {
-    fadeObserver.observe(el);
-  });
-
-  /* =========================
-     ACTIVE NAV HIGHLIGHT
-  ========================= */
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".site-links a");
-
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === "#" + id) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  }, {
-    threshold: 0.4
-  });
-
-  sections.forEach((section) => {
-    navObserver.observe(section);
-  });
-
-  /* =========================
-     NAV BACKGROUND ON SCROLL
-  ========================= */
-  const header = document.querySelector(".site-header");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-</script>
 
 </body>
 </html>
