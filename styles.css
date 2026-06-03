@@ -313,7 +313,7 @@ body {
 
 /* PAGE HEROES */
 
-.page-hero { position: relative; min-height: 62vh; background-image: url("assets/images/WorldMap.png"); background-size: cover; background-position: center center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.page-hero { position: relative; min-height: 62vh; background-image: url("images/WorldMap.png"); background-size: cover; background-position: center center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .compact-hero { min-height: 56vh; padding-top: 4.5rem; }
 .hero-content .eyebrow, .feature-card .eyebrow { margin: 0 0 0.75rem; color: var(--accent); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; }
 
@@ -346,3 +346,150 @@ body {
 
 @media (max-width: 900px) { .three-column, .two-column, .split-section { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .site-header { position: absolute; flex-direction: column; align-items: center; padding: 0.85rem 1rem; } .site-nav { justify-content: center; gap: 0.8rem; } .site-logo { font-size: 0.9rem; } .site-nav a { font-size: 0.72rem; } .compact-hero { padding-top: 7rem; } }
+
+
+/* STORY HUB / READING PAGES */
+
+.story-hero .hero-content h1 {
+  font-size: clamp(2.75rem, 7vw, 6rem);
+}
+
+.story-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.story-feature-card {
+  background: var(--panel);
+  border: 1px solid var(--divider);
+  padding: 1.75rem;
+  text-align: left;
+}
+
+.story-feature-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--text-primary);
+}
+
+.story-feature-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.featured-story-card {
+  background:
+    linear-gradient(135deg, rgba(183, 190, 138, 0.12), rgba(18, 20, 16, 0.08)),
+    var(--panel);
+  border-color: rgba(183, 190, 138, 0.45);
+}
+
+.story-status {
+  margin-top: 1rem !important;
+  color: var(--accent) !important;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reading-container {
+  width: min(920px, 92vw);
+  margin: 0 auto;
+}
+
+.reading-panel {
+  background: rgba(35, 38, 31, 0.86);
+  border: 1px solid var(--divider);
+  padding: clamp(1.5rem, 4vw, 3.25rem);
+  text-align: left;
+}
+
+.reading-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--divider);
+  text-align: center;
+}
+
+.reading-header h2 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.reading-meta {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.story-context-box {
+  margin: 0 0 2rem;
+  padding: 1.25rem;
+  background: rgba(18, 20, 16, 0.5);
+  border-left: 3px solid var(--accent);
+}
+
+.story-context-box h3 {
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.story-context-box p {
+  margin: 0.75rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.prose {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.prose p {
+  margin: 0 0 1.35rem;
+  color: var(--text-primary);
+  font-size: clamp(1.05rem, 2vw, 1.18rem);
+  line-height: 1.9;
+}
+
+.prose p:first-of-type::first-letter {
+  float: left;
+  margin: 0.12rem 0.5rem 0 0;
+  color: var(--accent);
+  font-size: 4.2rem;
+  line-height: 0.8;
+}
+
+.reading-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--divider);
+}
+
+@media (max-width: 800px) {
+  .story-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prose p:first-of-type::first-letter {
+    float: none;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
