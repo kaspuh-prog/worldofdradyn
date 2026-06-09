@@ -493,3 +493,63 @@ body {
     line-height: inherit;
   }
 }
+
+/* LORE ARTICLE HEADINGS */
+
+.prose h3 {
+  margin: 2.35rem 0 1rem;
+  color: var(--accent);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.prose h3:first-child {
+  margin-top: 0;
+}
+
+
+/* LORE TABLES */
+
+.lore-table-wrap {
+  width: 100%;
+  margin: 1.5rem 0 2rem;
+  overflow-x: auto;
+  border: 1px solid var(--divider);
+  background: rgba(18, 20, 16, 0.35);
+}
+
+.lore-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+.lore-table th,
+.lore-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--divider);
+  border-right: 1px solid var(--divider);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.lore-table th {
+  color: var(--accent);
+  background: rgba(35, 38, 31, 0.8);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lore-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.lore-table th:last-child,
+.lore-table td:last-child {
+  border-right: 0;
+}
